@@ -11,7 +11,7 @@ public class AddressBook {
     ArrayList<ContactPerson> contact = new ArrayList<>();
     Scanner scanner = new Scanner(System.in);
 
-    public void createContact() {
+    public void addContact() {
 /*
     Creating Contacts for each person by Using Scanner method
  */
@@ -34,12 +34,11 @@ public class AddressBook {
         contactPerson.setEmail(scanner.nextLine());
         contact.add(contactPerson);
     }
-    public void addContact(){
+    public void display(){
 /*
     To Print the ArrayList of Contact
  */
         System.out.println(contact);
         System.out.println("Contact Added Successfully");
-
     }
 }
