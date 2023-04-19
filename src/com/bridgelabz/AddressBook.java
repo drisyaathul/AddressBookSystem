@@ -106,8 +106,30 @@ public class AddressBook {
                 System.out.println("NO RECORD FOUND !");
             }
         }
-        public void display(){
-            // To print the ArrayList of Contact
-            System.out.println(contact);
+    public void deleteContact(String searchFirstName) {
+
+        for (ContactPerson contactPerson : contact) {
+            String firstName = contactPerson.getFirstName();
+
+            if (contactPerson.getFirstName().equalsIgnoreCase(searchFirstName)) {
+                System.out.println("confirm to delete the contact of " + searchFirstName + " (y/n)");
+
+                if (scanner.next().equalsIgnoreCase("y")) {
+
+                    contact.remove(contactPerson);
+                    System.out.println("Contact of "+searchFirstName+" is DELETED");
+                }
+                else
+                    System.out.println("Contact of "+searchFirstName+" is NOT Deleted");
+                break;
+            }
+            else
+                System.out.println("NO RECORD FOUND !");
+            break;
+            }
         }
+        public void display () {
+        // To print the ArrayList of Contact
+        System.out.println(contact);
     }
+}
