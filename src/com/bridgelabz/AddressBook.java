@@ -1,25 +1,45 @@
 package com.bridgelabz;
 
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class AddressBook {
+/*
+    Create ArrayList of ContactPerson object called contact
+    for store the contact of each person.
+ */
+    ArrayList<ContactPerson> contact = new ArrayList<>();
+    Scanner scanner = new Scanner(System.in);
 
-    public void CreateContact() {
+    public void createContact() {
+/*
+    Creating Contacts for each person by Using Scanner method
+ */
         ContactPerson contactPerson = new ContactPerson();
-        contactPerson.setFirstName("Drisya");
-        contactPerson.setLastName("Athul");
-        contactPerson.setAddress("Edhas House");
-        contactPerson.setCity("Perak");
-        contactPerson.setState("Kuala Lumpur");
-        contactPerson.setZip("320011");
-        contactPerson.setPhoneNumber("985478996625");
-        contactPerson.setEmail("drisya809@gmail.com");
+        System.out.print("Enter the First Name : ");
+        contactPerson.setFirstName(scanner.nextLine());
+        System.out.print("Enter the Last Name : ");
+        contactPerson.setLastName(scanner.nextLine());
+        System.out.print("Enter the Address : ");
+        contactPerson.setAddress(scanner.nextLine());
+        System.out.print("Enter the City : ");
+        contactPerson.setCity(scanner.nextLine());
+        System.out.print("Enter the State : ");
+        contactPerson.setState(scanner.nextLine());
+        System.out.print("Enter the Zip Code : ");
+        contactPerson.setZip(scanner.nextLine());
+        System.out.print("Enter the PhoneNumber : ");
+        contactPerson.setPhoneNumber(scanner.nextLine());
+        System.out.print("Enter the Email id : ");
+        contactPerson.setEmail(scanner.nextLine());
+        contact.add(contactPerson);
+    }
+    public void addContact(){
+/*
+    To Print the ArrayList of Contact
+ */
+        System.out.println(contact);
+        System.out.println("Contact Added Successfully");
 
-        System.out.println("First Name : " + contactPerson.getFirstName());
-        System.out.println("Second Name : " + contactPerson.getLastName());
-        System.out.println("Address : " + contactPerson.getAddress());
-        System.out.println("City : " + contactPerson.getCity());
-        System.out.println("State : " + contactPerson.getState());
-        System.out.println("Zip Code : " + contactPerson.getZip());
-        System.out.println("Phone Number : " + contactPerson.getPhoneNumber());
-        System.out.println("E-Mail : " + contactPerson.getEmail());
     }
 }
