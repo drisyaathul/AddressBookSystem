@@ -1,5 +1,9 @@
 package com.bridgelabz;
-
+/*
+   *    Initialising the first and last names, address,city, state, zip, phone number and email as Private.
+   *    Specifying the current object using "this." keyword.
+   *    And Generating the Getter and Setter.
+*/
 public class ContactPerson {
 
     private String firstName, lastName, address, city, state, zip, phoneNumber, email;
@@ -64,7 +68,9 @@ public class ContactPerson {
     public void setEmail(String email) {
         this.email = email;
     }
-
+/*
+Using ToString to print the Contact Person
+ */
     @Override
     public String toString() {
         return "ContactPerson{" +
