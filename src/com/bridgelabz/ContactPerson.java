@@ -8,7 +8,7 @@ public class ContactPerson {
 
     private String firstName, lastName, address, city, state, zip, phoneNumber, email;
 
-    public ContactPerson() {
+    public ContactPerson(String firstName, String lastName, String address, String city, String state, String zip, String phoneNumber, String email) {
 
         this.firstName = firstName;
         this.lastName = lastName;
@@ -18,6 +18,8 @@ public class ContactPerson {
         this.zip = zip;
         this.phoneNumber = phoneNumber;
         this.email = email;
+    }
+    public ContactPerson() {
 
     }
     public String getFirstName() {

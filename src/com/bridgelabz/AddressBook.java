@@ -41,6 +41,7 @@ public class AddressBook {
     * By using Switch Case, Updates the existing contact Person
 
  */
+        boolean isFound = false;
         for (ContactPerson contactPerson : contact) {
             String firstName = contactPerson.getFirstName();
             if (firstName.equals(searchFirstName)) {
@@ -100,34 +101,33 @@ public class AddressBook {
                         break;
                     default:
                         System.out.println("INVALID CHOICE");
+                        break;
                     }
+                isFound = true;
+                break;
                 }
-            else
-                System.out.println("NO RECORD FOUND !");
             }
+        if (!isFound)
+            System.out.println("No Record Found!");
         }
     public void deleteContact(String searchFirstName) {
-
+        /*
+         * To Delete the Contact Person by Searching their First Name
+         */
+        boolean isFound = false;
         for (ContactPerson contactPerson : contact) {
-            String firstName = contactPerson.getFirstName();
-
-            if (contactPerson.getFirstName().equalsIgnoreCase(searchFirstName)) {
-                System.out.println("confirm to delete the contact of " + searchFirstName + " (y/n)");
-
-                if (scanner.next().equalsIgnoreCase("y")) {
-
-                    contact.remove(contactPerson);
-                    System.out.println("Contact of "+searchFirstName+" is DELETED");
-                }
-                else
-                    System.out.println("Contact of "+searchFirstName+" is NOT Deleted");
+            if (contactPerson.getFirstName().equals(searchFirstName)) {
+                contact.remove(contactPerson);
+                isFound = true;
                 break;
             }
-            else
-                System.out.println("NO RECORD FOUND !");
-            break;
-            }
         }
+        if (isFound) {
+            System.out.println("Contact of " + searchFirstName + " is Deleted Successfully.");
+        } else {
+            System.out.println("Contact of " + searchFirstName + " is Not Found.");
+        }
+    }
         public void display () {
         // To print the ArrayList of Contact
         System.out.println(contact);
