@@ -13,7 +13,7 @@ public class AddressBook {
 
     public void addContact() {
 /*
-    Creating Contacts for each person by Using Scanner method
+  * Creating Contacts for each person by Using Scanner method
  */
         ContactPerson contactPerson = new ContactPerson();
         System.out.print("Enter the First Name : ");
@@ -37,9 +37,8 @@ public class AddressBook {
     public void editContact(String searchFirstName) {
  /*
     * To Edit Existing Contact Person by Searching their First Name
-    * By using if Loop, list of the existing contact will print
+    * By using if Loop, details of the existing contact will print
     * By using Switch Case, Updates the existing contact Person
-
  */
         for (ContactPerson contactPerson : contact) {
             String firstName = contactPerson.getFirstName();
