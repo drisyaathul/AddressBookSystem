@@ -8,8 +8,7 @@ public class ContactPerson {
 
     private String firstName, lastName, address, city, state, zip, phoneNumber, email;
 
-    public ContactPerson() {
-
+    public ContactPerson(String firstName, String lastName, String address, String city, String state, String zip, String phoneNumber, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
@@ -18,6 +17,9 @@ public class ContactPerson {
         this.zip = zip;
         this.phoneNumber = phoneNumber;
         this.email = email;
+    }
+
+    public ContactPerson() {
 
     }
     public String getFirstName() {
@@ -68,12 +70,12 @@ public class ContactPerson {
     public void setEmail(String email) {
         this.email = email;
     }
-    /*
-    Using ToString to print the Contact Person
-     */
     @Override
     public String toString() {
-        return "ContactPerson {" +
+        /*
+    Using ToString to print the Contact Person
+     */
+        return "ContactPerson{" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", address='" + address + '\'' +
