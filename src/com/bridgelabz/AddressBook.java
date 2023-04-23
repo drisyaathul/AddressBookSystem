@@ -1,15 +1,31 @@
 package com.bridgelabz;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
-public class AddressBook {
-    /*
-        Create ArrayList of ContactPerson object called contact
-        for store the contact of each person.
-     */
-    ArrayList<ContactPerson> contact = new ArrayList<>();
+public class AddressBook extends Collection{
 
+    private String addressBookName;
+
+    public AddressBook(String addressBookName) {
+
+        this.addressBookName = addressBookName;
+    }
+    public AddressBook() {
+
+    }
+    public String getAddressBookName() {
+        return addressBookName;
+    }
+    public void setAddressBookName(String addressBookName) {
+        this.addressBookName = addressBookName;
+    }
+    @Override
+    public String toString() {
+        return "AddressBook{" +
+                "contacts=" + contact +
+                ", addressBookName='" + addressBookName + '\'' +
+                "}\n";
+    }
     public void addContact() {
 /*
   * Creating Contacts for each person by Using Scanner method
@@ -132,9 +148,9 @@ public class AddressBook {
             }
         }
         if (isFound) {
-            System.out.println("Contact of " + searchFirstName + " Deleted Successfully.");
+            System.out.println("Contact of " + searchFirstName + " is Deleted Successfully.");
         } else {
-            System.out.println("Contact of " + searchFirstName + " Not Found.");
+            System.out.println("Contact of " + searchFirstName + " is Not Found.");
         }
     }
     public void display () {

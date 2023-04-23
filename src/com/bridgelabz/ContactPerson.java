@@ -7,7 +7,6 @@ package com.bridgelabz;
 public class ContactPerson {
 
     private String firstName, lastName, address, city, state, zip, phoneNumber, email;
-
     public ContactPerson(String firstName, String lastName, String address, String city, String state, String zip, String phoneNumber, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
