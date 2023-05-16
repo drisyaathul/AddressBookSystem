@@ -1,6 +1,8 @@
 package com.bridgelabz;
 
+import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class AddressBook extends Collection{
 
@@ -27,14 +29,26 @@ public class AddressBook extends Collection{
                 "}\n";
     }
     public void addContact() {
+
+        System.out.println("Enter the Details of Contact Person :-");
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the First Name : ");
+        String firstName = scanner.next();
+
+        List<ContactPerson> duplicateName = contact.stream().filter(contactPerson -> contactPerson.getFirstName().equals(firstName)).toList();
+        if (!(duplicateName.isEmpty())){
+            System.out.println("Contacts of Given First Name is already Exists !!");
+            System.out.println();
+            addContact();
+            return;
+        }
 /*
   * Creating Contacts for each person by Using Scanner method
   *  add multiple contacts to address book
  */
-        Scanner scanner = new Scanner(System.in);
         ContactPerson contactPerson = new ContactPerson();
-        System.out.print("Enter the First Name : ");
-        contactPerson.setFirstName(scanner.next());
+//        System.out.print("Enter the First Name : ");
+        contactPerson.setFirstName(firstName);
         System.out.print("Enter the Last Name : ");
         contactPerson.setLastName(scanner.next());
         System.out.print("Enter the Address : ");

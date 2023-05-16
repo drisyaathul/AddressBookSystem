@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public class AddressBookMain extends AddressBook{
+public class AddressBookMain {
     /*
         map is to maintain the Dictionary of address book name
      */
