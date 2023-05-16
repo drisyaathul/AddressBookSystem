@@ -110,7 +110,7 @@ public class AddressBookMain extends Collection{
         else
             System.out.println("Given Address Book not Found!!!");
     }
-    public static void searchState() {
+    public static void searchbyState() {
         /*
         search Person in a State across the multiple AddressBook using stream
          */
@@ -122,11 +122,11 @@ public class AddressBookMain extends Collection{
         addressBookMap.values().stream().forEach(addressBook -> stateList.addAll(addressBook.getContact().stream().filter(
                 contact -> contact.getState().equalsIgnoreCase(stateName)).toList()));
 
-        System.out.println(" Person Detail FOUND belongs to the State " +stateName);
+        System.out.println("Person Detail FOUND belongs to the State " +stateName);
         System.out.println(stateList);
         System.out.println();
     }
-    public static void searchCity() {
+    public static void searchbyCity() {
         /*
         search Person in a City across the multiple AddressBook using Stream
          */
@@ -172,10 +172,10 @@ public class AddressBookMain extends Collection{
                     displayAddressBook();
                     break;
                 case 6:
-                    searchState();
+                    searchbyState();
                     break;
                 case 7:
-                    searchCity();
+                    searchbyCity();
                     break;
                 default:
                     System.out.println("INVALID CHOICE");
