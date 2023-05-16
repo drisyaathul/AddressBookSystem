@@ -110,7 +110,7 @@ public class AddressBookMain extends Collection{
         else
             System.out.println("Given Address Book not Found!!!");
     }
-    public static void searchbyState() {
+    public static void searchByState() {
         /*
         search Person in a State across the multiple AddressBook using stream
          */
@@ -122,11 +122,13 @@ public class AddressBookMain extends Collection{
         addressBookMap.values().stream().forEach(addressBook -> stateList.addAll(addressBook.getContact().stream().filter(
                 contact -> contact.getState().equalsIgnoreCase(stateName)).toList()));
 
-        System.out.println("Person Detail FOUND belongs to the State " +stateName);
+        int count = stateList.size();
+        System.out.println("The number of person belongs to state :-");
+        System.out.println(count+ " Person Detail FOUND belongs to the State " +stateName);
         System.out.println(stateList);
-        System.out.println();
+
     }
-    public static void searchbyCity() {
+    public static void searchByCity() {
         /*
         search Person in a City across the multiple AddressBook using Stream
          */
@@ -136,11 +138,13 @@ public class AddressBookMain extends Collection{
 
         List<ContactPerson> cityList = new ArrayList<>();
         addressBookMap.values().stream().forEach(addressBook -> cityList.addAll(addressBook.getContact().stream().filter(
-                contact -> contact.getState().equalsIgnoreCase(cityName)).toList()));
+                contact -> contact.getCity().equalsIgnoreCase(cityName)).toList()));
 
-        System.out.println(" Person Detail FOUND belongs to the City " +cityName);
+        int count = cityList.size();
+        System.out.println("The number of person belongs to city :-");
+        System.out.println(count+" Person Detail FOUND belongs to the City " +cityName);
         System.out.println(cityList);
-        System.out.println();
+
     }
     public static void main(String[] args) {
         /*
@@ -172,10 +176,10 @@ public class AddressBookMain extends Collection{
                     displayAddressBook();
                     break;
                 case 6:
-                    searchbyState();
+                    searchByState();
                     break;
                 case 7:
-                    searchbyCity();
+                    searchByCity();
                     break;
                 default:
                     System.out.println("INVALID CHOICE");
