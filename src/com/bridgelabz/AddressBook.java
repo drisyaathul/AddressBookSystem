@@ -1,10 +1,17 @@
 package com.bridgelabz;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class AddressBook extends Collection{
+    public ArrayList<ContactPerson> getContact() {
+        return contact;
+    }
+    public void setContact(ArrayList<ContactPerson> contact){
+        this.contact = contact;
+    }
 
     private String addressBookName;
 
@@ -169,7 +176,15 @@ public class AddressBook extends Collection{
     }
     public void display () {
         // To print the ArrayList of Contact
-        System.out.println(contact);
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter the name of the address book to Display:");
+        String name = scanner.next();
+        if(addressBookMap.containsKey(name)) {
+            AddressBook contact = addressBookMap.get(name);
+            System.out.println(contact);
+        }
+        else
+            System.out.println("Given Address Book NOT FOUND\n");
     }
 }
 

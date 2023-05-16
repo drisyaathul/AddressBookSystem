@@ -1,14 +1,11 @@
 package com.bridgelabz;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
-public class AddressBookMain {
+public class AddressBookMain extends Collection{
     /*
         map is to maintain the Dictionary of address book name
      */
-public static Map<String,AddressBook> addressBookMap= new HashMap<>();
     public static void addAddressBook() {
         /*
         creating new Address Book And each Address book has Unique name using Console
@@ -113,6 +110,42 @@ public static Map<String,AddressBook> addressBookMap= new HashMap<>();
         else
             System.out.println("Given Address Book not Found!!!");
     }
+    public static void searchState() {
+        /*
+        search Person in a State across the multiple AddressBook using stream
+         */
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter the State Name");
+        String stateName = scanner.next();
+
+        List<ContactPerson> stateList = new ArrayList<>();
+        addressBookMap.values().stream().forEach(addressBook -> stateList.addAll(addressBook.getContact().stream().filter(
+                contact -> contact.getState().equalsIgnoreCase(stateName)).toList()));
+
+        int count = stateList.size();
+        System.out.println("Total Count of Contact Person by State :- ");
+        System.out.println(count+ " Person Detail FOUND belongs to the State " +stateName);
+        System.out.println(stateList);
+        System.out.println();
+    }
+    public static void searchCity() {
+        /*
+        search Person in a City across the multiple AddressBook using Stream
+         */
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter the City Name");
+        String cityName = scanner.next();
+
+        List<ContactPerson> cityList = new ArrayList<>();
+        addressBookMap.values().stream().forEach(addressBook -> cityList.addAll(addressBook.getContact().stream().filter(
+                contact -> contact.getState().equalsIgnoreCase(cityName)).toList()));
+
+        int count = cityList.size();
+        System.out.println("Total Count of Contact Person by City :- ");
+        System.out.println(count+ " Person Detail FOUND belongs to the City " +cityName);
+        System.out.println(cityList);
+        System.out.println();
+    }
     public static void main(String[] args) {
         /*
          * Calling Methods by using Switch Case
@@ -121,7 +154,7 @@ public static Map<String,AddressBook> addressBookMap= new HashMap<>();
         Scanner scanner = new Scanner(System.in);
         while (true){
             System.out.println("---Address Book---");
-            System.out.println("1. Add AddressBook \n2. Add Contact \n3. Edit Contact \n4. Delete Contact \n5. Display Contact \n");
+            System.out.println("1. Add AddressBook \n2. Add Contact \n3. Edit Contact \n4. Delete Contact \n5. Display Contact \n6. Search State \n7. Search City\n");
             System.out.println("Choose any Number : ");
 
             int choice = scanner.nextInt();
@@ -141,6 +174,12 @@ public static Map<String,AddressBook> addressBookMap= new HashMap<>();
                     break;
                 case 5:
                     displayAddressBook();
+                    break;
+                case 6:
+                    searchState();
+                    break;
+                case 7:
+                    searchCity();
                     break;
                 default:
                     System.out.println("INVALID CHOICE");
