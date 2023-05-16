@@ -110,7 +110,7 @@ public class AddressBookMain extends Collection{
         else
             System.out.println("Given Address Book not Found!!!");
     }
-    public static void searchState() {
+    public static void searchbyState() {
         /*
         search Person in a State across the multiple AddressBook using stream
          */
@@ -122,13 +122,11 @@ public class AddressBookMain extends Collection{
         addressBookMap.values().stream().forEach(addressBook -> stateList.addAll(addressBook.getContact().stream().filter(
                 contact -> contact.getState().equalsIgnoreCase(stateName)).toList()));
 
-        int count = stateList.size();
-        System.out.println("Total Count of Contact Person by State :- ");
-        System.out.println(count+ " Person Detail FOUND belongs to the State " +stateName);
+        System.out.println("Person Detail FOUND belongs to the State " +stateName);
         System.out.println(stateList);
         System.out.println();
     }
-    public static void searchCity() {
+    public static void searchbyCity() {
         /*
         search Person in a City across the multiple AddressBook using Stream
          */
@@ -140,9 +138,7 @@ public class AddressBookMain extends Collection{
         addressBookMap.values().stream().forEach(addressBook -> cityList.addAll(addressBook.getContact().stream().filter(
                 contact -> contact.getState().equalsIgnoreCase(cityName)).toList()));
 
-        int count = cityList.size();
-        System.out.println("Total Count of Contact Person by City :- ");
-        System.out.println(count+ " Person Detail FOUND belongs to the City " +cityName);
+        System.out.println(" Person Detail FOUND belongs to the City " +cityName);
         System.out.println(cityList);
         System.out.println();
     }
@@ -176,10 +172,10 @@ public class AddressBookMain extends Collection{
                     displayAddressBook();
                     break;
                 case 6:
-                    searchState();
+                    searchbyState();
                     break;
                 case 7:
-                    searchCity();
+                    searchbyCity();
                     break;
                 default:
                     System.out.println("INVALID CHOICE");
