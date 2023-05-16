@@ -122,9 +122,7 @@ public class AddressBookMain extends Collection{
         addressBookMap.values().stream().forEach(addressBook -> stateList.addAll(addressBook.getContact().stream().filter(
                 contact -> contact.getState().equalsIgnoreCase(stateName)).toList()));
 
-        int count = stateList.size();
-        System.out.println("Total Count of Contact Person by State :- ");
-        System.out.println(count+ " Person Detail FOUND belongs to the State " +stateName);
+        System.out.println(" Person Detail FOUND belongs to the State " +stateName);
         System.out.println(stateList);
         System.out.println();
     }
@@ -140,9 +138,7 @@ public class AddressBookMain extends Collection{
         addressBookMap.values().stream().forEach(addressBook -> cityList.addAll(addressBook.getContact().stream().filter(
                 contact -> contact.getState().equalsIgnoreCase(cityName)).toList()));
 
-        int count = cityList.size();
-        System.out.println("Total Count of Contact Person by City :- ");
-        System.out.println(count+ " Person Detail FOUND belongs to the City " +cityName);
+        System.out.println(" Person Detail FOUND belongs to the City " +cityName);
         System.out.println(cityList);
         System.out.println();
     }
