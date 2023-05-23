@@ -1,6 +1,7 @@
 package com.bridgelabz;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class AddressBookMain extends Collection{
     /*
@@ -144,7 +145,16 @@ public class AddressBookMain extends Collection{
         System.out.println("The number of person belongs to city :-");
         System.out.println(count+" Person Detail FOUND belongs to the City " +cityName);
         System.out.println(cityList);
-
+    }
+    public static void sortByName() {
+        /*
+         * UC11: sort the entries in the address book alphabetically by Person’s name
+         */
+        List<ContactPerson> personName = new ArrayList<>();
+        addressBookMap.values().forEach(addressBook -> { personName.addAll(addressBook.getContact().stream().sorted(
+                Comparator.comparing(ContactPerson::getFirstName)).toList());
+        });
+        System.out.println(personName);
     }
     public static void main(String[] args) {
         /*
@@ -154,7 +164,7 @@ public class AddressBookMain extends Collection{
         Scanner scanner = new Scanner(System.in);
         while (true){
             System.out.println("---Address Book---");
-            System.out.println("1. Add AddressBook \n2. Add Contact \n3. Edit Contact \n4. Delete Contact \n5. Display Contact \n6. Search By State \n7. Search By City\n");
+            System.out.println("1. Add AddressBook \n2. Add Contact \n3. Edit Contact \n4. Delete Contact \n5. Display Contact \n6. Search By State \n7. Search By City\n8. Sort By Person's Name");
             System.out.println("Choose any Number : ");
 
             int choice = scanner.nextInt();
@@ -181,10 +191,15 @@ public class AddressBookMain extends Collection{
                 case 7:
                     searchByCity();
                     break;
+                case 8:
+                    sortByName();
+                    break;
                 default:
                     System.out.println("INVALID CHOICE");
             }
         }
     }
+
+
 }
 
