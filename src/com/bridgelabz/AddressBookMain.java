@@ -156,15 +156,48 @@ public class AddressBookMain extends Collection{
         });
         System.out.println(personName);
     }
+    //UC12:
+    private static void sortByCity() {
+        /*
+         * sort the entries in the address book by City.
+         */
+        List<ContactPerson> cityName = new ArrayList<>();
+        addressBookMap.values().forEach(addressBook -> { cityName.addAll(addressBook.getContact().stream().sorted(
+                Comparator.comparing(ContactPerson::getCity)).toList());
+        });
+        System.out.println(cityName);
+    }
+    public static void sortByState() {
+        /*
+         * sort the entries in the address book by State.
+         */
+        List<ContactPerson> stateName = new ArrayList<>();
+        addressBookMap.values().forEach(addressBook -> { stateName.addAll(addressBook.getContact().stream().sorted(
+                Comparator.comparing(ContactPerson :: getState)).toList());
+        });
+        System.out.println(stateName);
+    }
+    public static void sortByZip() {
+        /*
+         * sort the entries in the address book by Zip.
+         */
+        List<ContactPerson> zipCode = new ArrayList<>();
+        addressBookMap.values().forEach(addressBook -> { zipCode.addAll(addressBook.getContact().stream().sorted(
+                Comparator.comparing(ContactPerson :: getZip)).toList());
+        });
+        System.out.println(zipCode);
+    }
     public static void main(String[] args) {
         /*
          * Calling Methods by using Switch Case
          */
         System.out.println(" *** Welcome To ADDRESS BOOK PROGRAM *** ");
         Scanner scanner = new Scanner(System.in);
-        while (true){
+        boolean flag = true;
+        while (flag){
             System.out.println("---Address Book---");
-            System.out.println("1. Add AddressBook \n2. Add Contact \n3. Edit Contact \n4. Delete Contact \n5. Display Contact \n6. Search By State \n7. Search By City\n8. Sort By Person's Name");
+            System.out.println("1. Add AddressBook \n2. Add Contact \n3. Edit Contact \n4. Delete Contact \n5. Display Contact \n6. Search By State \n7. Search By City \n8. Sort By Person's Name \n" +
+                    "9. Sort By City \n10. Sort By State \n11. Sort By Zip \n12. Quit \n");
             System.out.println("Choose any Number : ");
 
             int choice = scanner.nextInt();
@@ -194,11 +227,25 @@ public class AddressBookMain extends Collection{
                 case 8:
                     sortByName();
                     break;
+                case 9:
+                    sortByCity();
+                    break;
+                case 10:
+                    sortByState();
+                    break;
+                case 11:
+                    sortByZip();
+                    break;
+                case 12:
+                    flag = false;
+                    break;
                 default:
                     System.out.println("INVALID CHOICE");
             }
         }
     }
+
+
 
 
 }
