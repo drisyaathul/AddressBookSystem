@@ -192,32 +192,6 @@ public class AddressBookMain extends Collection{
         });
         System.out.println(zipCode);
     }
-    public static void writeToFile() {
-        String path = "C:\\Users\\drisy\\IdeaProjects\\RFP272-AddressBookSystem\\src\\com\\bridgelabz\\AddressBook.txt";
-        StringBuffer addressBookBuffer = new StringBuffer();
-        addressBookMap.values().stream().forEach(contact -> {
-            String personDataString = contact.toString().concat("\n");
-            addressBookBuffer.append(personDataString);
-        });
-
-        try {
-            Files.write(Paths.get(path), addressBookBuffer.toString().getBytes());
-        }
-        catch (IOException e) {
-            System.out.println("Catch block");
-        }
-    }
-
-    public static void readFromFile() {
-        String path = "C:\\Users\\drisy\\IdeaProjects\\RFP272-AddressBookSystem\\src\\com\\bridgelabz\\AddressBook.txt";
-        System.out.println("Reading from : " + path + "\n");
-        try {
-            Files.lines(new File(path).toPath()).forEach(employeeDetails -> System.out.println(employeeDetails));
-        }
-        catch(IOException e){
-            System.out.println("Catch block");
-        }
-    }
     public static void main(String[] args) {
         /*
          * Calling Methods by using Switch Case
@@ -241,7 +215,6 @@ public class AddressBookMain extends Collection{
                     break;
                 case 3:
                     editContacts();
-
                     break;
                 case 4:
                     deleteContacts();
@@ -267,12 +240,7 @@ public class AddressBookMain extends Collection{
                 case 11:
                     sortByZip();
                     break;
-                case 12:
-                    writeToFile();
-                    break;
-                case 13:
-                    readFromFile();
-                    break;
+
                 case 14:
                     flag = false;
                     break;
@@ -281,9 +249,5 @@ public class AddressBookMain extends Collection{
             }
         }
     }
-
-
-
-
 }
 
