@@ -1,7 +1,11 @@
 package com.bridgelabz;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.*;
-import java.util.stream.Collectors;
+
 
 public class AddressBookMain extends Collection{
     /*
@@ -187,17 +191,19 @@ public class AddressBookMain extends Collection{
         });
         System.out.println(zipCode);
     }
+
     public static void main(String[] args) {
         /*
          * Calling Methods by using Switch Case
          */
+        ReadAndWriteFile readAndWriteFile = new ReadAndWriteFile();
         System.out.println(" *** Welcome To ADDRESS BOOK PROGRAM *** ");
         Scanner scanner = new Scanner(System.in);
         boolean flag = true;
         while (flag){
             System.out.println("---Address Book---");
             System.out.println("1. Add AddressBook \n2. Add Contact \n3. Edit Contact \n4. Delete Contact \n5. Display Contact \n6. Search By State \n7. Search By City \n8. Sort By Person's Name \n" +
-                    "9. Sort By City \n10. Sort By State \n11. Sort By Zip \n12. Quit \n");
+                    "9. Sort By City \n10. Sort By State \n11. Sort By Zip \n12. Write File \n13. Read File \n14. Quit \n");
             System.out.println("Choose any Number : ");
 
             int choice = scanner.nextInt();
@@ -237,6 +243,12 @@ public class AddressBookMain extends Collection{
                     sortByZip();
                     break;
                 case 12:
+                    readAndWriteFile.writeToFile();
+                    break;
+                case 13:
+                    readAndWriteFile.readFromFile();
+                    break;
+                case 14:
                     flag = false;
                     break;
                 default:
@@ -244,9 +256,5 @@ public class AddressBookMain extends Collection{
             }
         }
     }
-
-
-
-
 }
 

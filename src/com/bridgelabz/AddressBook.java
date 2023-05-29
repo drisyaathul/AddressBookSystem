@@ -3,7 +3,6 @@ package com.bridgelabz;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import java.util.stream.Collectors;
 
 public class AddressBook extends Collection{
     public ArrayList<ContactPerson> getContact() {
@@ -60,11 +59,11 @@ public class AddressBook extends Collection{
         contactPerson.setLastName(scanner.next());
         System.out.print("Enter the Address : ");
         contactPerson.setAddress(scanner.next());
-        System.out.print("Enter the City : ");
+        System.out.println("Enter the City : ");
         contactPerson.setCity(scanner.next());
         System.out.print("Enter the State : ");
         contactPerson.setState(scanner.next());
-        System.out.print("Enter the Zip Code : ");
+        System.out.println("Enter the Zip Code : ");
         contactPerson.setZip(scanner.next());
         System.out.print("Enter the PhoneNumber : ");
         contactPerson.setPhoneNumber(scanner.next());
