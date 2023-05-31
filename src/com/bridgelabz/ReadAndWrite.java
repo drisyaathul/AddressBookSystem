@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-public class ReadAndWriteFile extends Collection {
+public class ReadAndWrite extends Collection {
 
         public static void writeToFile() {
         String path = "C:\\Users\\drisy\\IdeaProjects\\RFP272-AddressBookSystem\\src\\com\\bridgelabz\\AddressBook.txt";

@@ -1,9 +1,5 @@
 package com.bridgelabz;
 
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.*;
 
 
@@ -196,7 +192,6 @@ public class AddressBookMain extends Collection{
         /*
          * Calling Methods by using Switch Case
          */
-        ReadAndWriteFile readAndWriteFile = new ReadAndWriteFile();
         System.out.println(" *** Welcome To ADDRESS BOOK PROGRAM *** ");
         Scanner scanner = new Scanner(System.in);
         boolean flag = true;
@@ -216,7 +211,6 @@ public class AddressBookMain extends Collection{
                     break;
                 case 3:
                     editContacts();
-
                     break;
                 case 4:
                     deleteContacts();
@@ -243,10 +237,10 @@ public class AddressBookMain extends Collection{
                     sortByZip();
                     break;
                 case 12:
-                    readAndWriteFile.writeToFile();
+                    ReadAndWrite.writeToFile();
                     break;
                 case 13:
-                    readAndWriteFile.readFromFile();
+                    ReadAndWrite.readFromFile();
                     break;
                 case 14:
                     flag = false;
